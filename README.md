@@ -153,6 +153,22 @@ In a second terminal from the project root:
 uvicorn app.main:app --reload
 ```
 
+## Vercel deployment (frontend + API in one project)
+
+This repository now includes a `vercel.json` that uses a root build command for `frontend` and deploys `api/index.py` as a Vercel Python function.
+
+### Required setup in Vercel
+
+- Import this repository as a Vercel project.
+- Build command is defined in `vercel.json` (`cd frontend && npm install && npm run build`).
+- Output directory is `frontend/dist`.
+- API runs from `api/index.py` via Vercel Python runtime.
+
+### API base URL
+
+- Production default is now relative (`/api`), so frontend and backend work on the same domain automatically.
+- For local development, copy `frontend/.env.example` to `frontend/.env` so Vite points to `http://127.0.0.1:8000/api`.
+
 ## API endpoints
 
 - `GET /api/search?q=`

@@ -47,7 +47,7 @@ export function PriceChart({ points, currency }: PriceChartProps) {
                 border: "1px solid rgba(148,163,184,0.2)",
                 borderRadius: 16
               }}
-              formatter={(value: number) => formatCurrency(value, currency)}
+              formatter={(value) => formatCurrency(typeof value === "number" ? value : undefined, currency)}
               labelFormatter={(label) => `${label}`}
             />
             <Area
