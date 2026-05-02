@@ -7,6 +7,8 @@ import { PriceChart } from "../components/PriceChart";
 import { StatCard } from "../components/StatCard";
 import { api } from "../lib/api";
 import { CHART_RANGES } from "../lib/constants";
+
+type ChartRange = (typeof CHART_RANGES)[number];
 import { loadSettings, loadWatchlist, saveWatchlist } from "../lib/storage";
 import type { DividendsResponse, FinancialsResponse, HistoryResponse, NewsResponse, Quote } from "../types/finance";
 import { formatCompactNumber, formatCurrency, formatDate, toTitleCase } from "../lib/utils";
@@ -19,7 +21,7 @@ export function StockDetailPage() {
   const [news, setNews] = useState<NewsResponse | null>(null);
   const [dividends, setDividends] = useState<DividendsResponse | null>(null);
   const [financials, setFinancials] = useState<FinancialsResponse | null>(null);
-  const [selectedRange, setSelectedRange] = useState(CHART_RANGES[2]);
+  const [selectedRange, setSelectedRange] = useState<ChartRange>(CHART_RANGES[2]);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 

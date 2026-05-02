@@ -1,0 +1,19 @@
+# Node
+node_modules/
+frontend/node_modules/
+frontend/dist/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Env
+.env
+.env.*
+!frontend/.env.example
+
+# OS
+.DS_Store
+
+*.tsbuildinfo
